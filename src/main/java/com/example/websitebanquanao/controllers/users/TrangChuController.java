@@ -76,20 +76,20 @@ public class TrangChuController {
 
     private static final String redirect = "redirect:/";
 
-//    // trang chủ
-//    @GetMapping("")
-//    public String trangChu(Model model, @ModelAttribute("successMessage") String successMessage) {
-//        List<TrangChuResponse> productList = sanPhamService.getListTrangChu("");
-//        model.addAttribute("successMessage", successMessage);
-//        List<TrangChuResponse> firstEightProducts = productList.subList(0, Math.min(productList.size(), 8));
-//        model.addAttribute("listTrangChu", firstEightProducts);
-//        model.addAttribute("kh", khachHangRequest);
-//        model.addAttribute("listBanChay", sanPhamService.getListBanChay(""));
-//        model.addAttribute("viewBanner", "/views/user/banner.jsp");
-//        model.addAttribute("viewContent", "/views/user/trang-chu.jsp");
-//        return "user/layout";
-//    }
-//
+    // trang chủ
+    @GetMapping("")
+    public String trangChu(Model model, @ModelAttribute("successMessage") String successMessage) {
+        List<TrangChuResponse> productList = sanPhamService.getListTrangChu("");
+        model.addAttribute("successMessage", successMessage);
+        List<TrangChuResponse> firstEightProducts = productList.subList(0, Math.min(productList.size(), 8));
+        model.addAttribute("listTrangChu", firstEightProducts);
+        model.addAttribute("kh", khachHangRequest);
+        model.addAttribute("listBanChay", sanPhamService.getListBanChay(""));
+        model.addAttribute("viewBanner", "/views/user/banner.jsp");
+        model.addAttribute("viewContent", "/views/user/trang-chu.jsp");
+        return "user/layout";
+    }
+
 //    // trang sản phẩm tất cả
 //    @GetMapping("/san-pham")
 //    public String sanPham(Model model, @RequestParam(defaultValue = "", name = "sort", required = false) String sort) {
