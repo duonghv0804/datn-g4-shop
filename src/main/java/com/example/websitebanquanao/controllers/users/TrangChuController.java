@@ -101,18 +101,18 @@ public class TrangChuController {
         return "user/layout";
     }
 
-//    // trang sản phẩm theo loại
-//    @GetMapping("/san-pham/{idLoai}")
-//    public String sanPhamById(Model model, @PathVariable("idLoai") Integer idLoai, @RequestParam(defaultValue = "", name = "sort", required = false) String sort) {
-//        System.out.println("idLoai: " + idLoai);
-//        model.addAttribute("listLoai", sanPhamService.getListLoai());
-//        model.addAttribute("listSanPham", sanPhamService.getListSanPhamByIdLoai(idLoai, sort));
-//        model.addAttribute("kh", khachHangRequest);
-//        model.addAttribute("idLoai", idLoai);
-//        model.addAttribute("viewContent", "/views/user/san-pham.jsp");
-//        return "user/layout";
-//    }
-//
+    // trang sản phẩm theo loại
+    @GetMapping("/san-pham/{idLoai}")
+    public String sanPhamById(Model model, @PathVariable("idLoai") Integer idLoai, @RequestParam(defaultValue = "", name = "sort", required = false) String sort) {
+        System.out.println("idLoai: " + idLoai);
+        model.addAttribute("listLoai", sanPhamService.getListLoai());
+        model.addAttribute("listSanPham", sanPhamService.getListSanPhamByIdLoai(idLoai, sort));
+        model.addAttribute("kh", khachHangRequest);
+        model.addAttribute("idLoai", idLoai);
+        model.addAttribute("viewContent", "/views/user/san-pham.jsp");
+        return "user/layout";
+    }
+
 //    // lấy số phần trăm khuyến mãi để hiển thị lên sản phẩm
 //    @GetMapping("/so-phan-tram-giam/{idSanPham}")
 //    @ResponseBody
