@@ -90,17 +90,17 @@ public class TrangChuController {
         return "user/layout";
     }
 
-//    // trang sản phẩm tất cả
-//    @GetMapping("/san-pham")
-//    public String sanPham(Model model, @RequestParam(defaultValue = "", name = "sort", required = false) String sort) {
-//        model.addAttribute("idLoai", -1);
-//        model.addAttribute("kh", khachHangRequest);
-//        model.addAttribute("listLoai", sanPhamService.getListLoai());
-//        model.addAttribute("listSanPham", sanPhamService.getListTrangChu(sort));
-//        model.addAttribute("viewContent", "/views/user/san-pham.jsp");
-//        return "user/layout";
-//    }
-//
+    // trang sản phẩm tất cả
+    @GetMapping("/san-pham")
+    public String sanPham(Model model, @RequestParam(defaultValue = "", name = "sort", required = false) String sort) {
+        model.addAttribute("idLoai", -1);
+        model.addAttribute("kh", khachHangRequest);
+        model.addAttribute("listLoai", sanPhamService.getListLoai());
+        model.addAttribute("listSanPham", sanPhamService.getListTrangChu(sort));
+        model.addAttribute("viewContent", "/views/user/san-pham.jsp");
+        return "user/layout";
+    }
+
 //    // trang sản phẩm theo loại
 //    @GetMapping("/san-pham/{idLoai}")
 //    public String sanPhamById(Model model, @PathVariable("idLoai") Integer idLoai, @RequestParam(defaultValue = "", name = "sort", required = false) String sort) {
