@@ -4,166 +4,165 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <html>
 <head>
-    <title>G4 Shop</title>
-    <link
-            rel="icon"
-            href=
-                    "/../views/admin/css/Summer.png"
-            type="image/x-icon"
-    />
-    <link rel="stylesheet" href="/../views/user/css/index.css"/>
-    <link rel="stylesheet" href="/../views/user/css/styleguide.css"/>
-    <link rel="stylesheet" href="/../views/user/css/productdetail.css"/>
-    <link rel="stylesheet" href="/../views/user/css/product.css"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+   <title>G4 Shop</title>
+   <link rel="icon" href="/../views/admin/css/Summer.png" type="image/x-icon"/>
+   <link rel="stylesheet" href="/../views/user/css/index.css"/>
+   <link rel="stylesheet" href="/../views/user/css/styleguide.css"/>
+   <link rel="stylesheet" href="/../views/user/css/productdetail.css"/>
+   <link rel="stylesheet" href="/../views/user/css/product.css"/>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
 </head>
 <style>
-    <%--        fixed navbar--%>
-    body {
-        padding-top: 70px; /* Adjust this value based on your navbar height */
-    }
-.update-button{
-    display: block;
-    width: 100%;
-    padding: 0.25rem 1rem;
-    clear: both;
-    font-weight: 400;
-    color: #212529;
-    text-align: inherit;
-    text-decoration: none;
-    white-space: nowrap;
-    background-color: transparent;
-    border: 0;
-}
-    .custom-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        transition: background-color 0.3s;
-    }
+   <%--        fixed navbar--%>
+   body {
+       padding-top: 70px; /* Adjust this value based on your navbar height */
+   }
 
-    .custom-nav.scrolled {
-        background-color: #ffffff;
-    }
+   .update-button {
+       display: block;
+       width: 100%;
+       padding: 0.25rem 1rem;
+       clear: both;
+       font-weight: 400;
+       color: #212529;
+       text-align: inherit;
+       text-decoration: none;
+       white-space: nowrap;
+       background-color: transparent;
+       border: 0;
+   }
 
-    .menu-div-2 {
-        display: flex;
-        align-items: center;
-    }
+   .custom-nav {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       z-index: 1000;
+       transition: background-color 0.3s;
+   }
 
-    /* Optional: Add margin to the right of the last item to separate it from the dropdown */
-    .menu-div-2 .nav-item.dropdown {
-        margin-right: 10px; /* Adjust as needed */
-    }
+   .custom-nav.scrolled {
+       background-color: #ffffff;
+   }
+
+   .menu-div-2 {
+       display: flex;
+       align-items: center;
+   }
+
+   /* Optional: Add margin to the right of the last item to separate it from the dropdown */
+   .menu-div-2 .nav-item.dropdown {
+       margin-right: 10px; /* Adjust as needed */
+   }
 
 
 </style>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-nav">
-        <div class="container">
-            <a class="navbar-brand" href="/"><img src="/../views/admin/css/SPORT65.png"  width="80px" height="40px"  alt=""></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav m-auto"> <!-- Use 'mr-auto' here -->
-                    <li class="nav-item  ">
-                        <a style="color: #ffffff" class="nav-link" href="/">Trang chủ</a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a style="color: #ffffff" class="nav-link" href="/san-pham">Sản Phẩm</a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a style="color: #ffffff" class="nav-link" href="/sale">Sale</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="color: #ffffff" class="nav-link" href="/gioi-thieu">Giới Thiệu</a>
-                    </li>
-                </ul>
-                <div class="menu-div-2 ">
-                    <div class="d-flex">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-nav">
+      <div class="container">
+         <a class="navbar-brand" href="/"><img src="/../views/admin/css/SPORT65.png" width="80px" height="40px" alt=""></a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav m-auto"> <!-- Use 'mr-auto' here -->
+               <li class="nav-item  ">
+                  <a style="color: #ffffff" class="nav-link" href="/">Trang chủ</a>
+               </li>
+               <li class="nav-item  ">
+                  <a style="color: #ffffff" class="nav-link" href="/san-pham">Sản Phẩm</a>
+               </li>
+               <li class="nav-item  ">
+                  <a style="color: #ffffff" class="nav-link" href="/sale">Sale</a>
+               </li>
+               <li class="nav-item">
+                  <a style="color: #ffffff" class="nav-link" href="/gioi-thieu">Giới Thiệu</a>
+               </li>
+            </ul>
+            <div class="menu-div-2 ">
+               <ul class="nav">
+                  <li class="nav-item">
+                     <a class="nav-link" href="/gio-hang" role="button">
+                        <i class="fas fa-shopping-cart" style="color: #ffffff;"></i>
+                        <span class="badge rounded-pill text-bg-primary">${countCartItem}</span>
+                     </a>
+                  </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="/gio-hang" role="button">
-                                <i class="fas fa-shopping-cart" style="color: #ffffff;"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link mb-4 ms-4 " href="#" role="button" data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                <i class="fas fa-user" style="color: #ffffff;"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <c:choose>
-                                    <c:when test="${not empty sessionScope.khachHang}">
-                                        <li><a class="update-button" href="#"
-                                               data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                               data-id="${sessionScope.khachHang.id}"
-                                               data-hoVaTen="${sessionScope.khachHang.hoVaTen}"
-                                               data-soDienThoai="${sessionScope.khachHang.soDienThoai}"
-                                               data-email="${sessionScope.khachHang.email}"
-                                               data-diaChi="${sessionScope.khachHang.diaChi}"
-                                               data-xaPhuong="${sessionScope.khachHang.xaPhuong}"
-                                               data-quanHuyen="${sessionScope.khachHang.quanHuyen}"
-                                               data-tinhThanhPho="${sessionScope.khachHang.tinhThanhPho}">Thông Tin Tài
-                                            Khoản</a></li>
-                                        <li><a class="dropdown-item" href="/hoa-don">Đơn hàng của tôi</a></li>
-                                        <li><a class="dropdown-item" href="/dang-xuat">Đăng xuất</a></li>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <li><a class="dropdown-item" href="/dang-nhap">Đăng nhập</a></li>
-                                    </c:otherwise>
-                                </c:choose>
-                            </ul>
-                        </li>
-                    </div>
-                </div>
+                  <li class="nav-item dropdown">
+                     <c:if test="${sessionScope.khachHang == null || empty sessionScope.khachHang}">
+                        <a class="btn btn-outline-primary" href="/dang-nhap">Đăng nhập/ Đăng ký</a>
+                     </c:if>
+                     <c:if test="${sessionScope.khachHang != null}">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                           <i class="fas fa-user" style="color: #ffffff;"></i>
+                           <span class="text-white">${sessionScope.khachHang.hoVaTen}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                           <li><a class="update-button" href="#"
+                                  data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                  data-id="${sessionScope.khachHang.id}"
+                                  data-hoVaTen="${sessionScope.khachHang.hoVaTen}"
+                                  data-soDienThoai="${sessionScope.khachHang.soDienThoai}"
+                                  data-email="${sessionScope.khachHang.email}"
+                                  data-diaChi="${sessionScope.khachHang.diaChi}"
+                                  data-xaPhuong="${sessionScope.khachHang.xaPhuong}"
+                                  data-quanHuyen="${sessionScope.khachHang.quanHuyen}"
+                                  data-tinhThanhPho="${sessionScope.khachHang.tinhThanhPho}">Thông Tin Tài
+                              Khoản</a></li>
+                           <li><a class="dropdown-item" href="/hoa-don">Đơn hàng của tôi</a></li>
+                           <li><a class="dropdown-item" href="/dang-xuat">Đăng xuất</a></li>
+                        </ul>
+                     </c:if>
+
+                  </li>
+               </ul>
             </div>
-        </div>
-    </nav>
-    <!-- Carousel -->
-    <jsp:include page="${ viewBanner }"/>
+         </div>
+      </div>
+   </nav>
+   <!-- Carousel -->
+   <jsp:include page="${ viewBanner }"/>
 </header>
-<!-- Content -->
+<!-- Main content -->
 <main>
-    <!-- content -->
-    <jsp:include page="${ viewContent }"/>
+   <!--  dynamic content -->
+   <jsp:include page="${ viewContent }"/>
 </main>
+<%-- Footer fragment--%>
 <footer>
-    <div class="container mt-5">
-        <div class="row pt-4">
-            <div class="col-md-3 col-12 ">
-                <div class="d-flex mb-2">
-                    <i class="fas fa-caret-down fa-rotate-270"></i>
-                    <div class="text-sm ">
-                        <a href="/chinh-sach-bao-mat" class="text-decoration-none text-dark">Chính sách bảo mật</a>
-                    </div>
-                </div>
+   <div class="container mt-5">
+      <div class="row pt-4">
+         <div class="col-md-3 col-12 ">
+            <div class="d-flex mb-2">
+               <i class="fas fa-caret-down fa-rotate-270"></i>
+               <div class="text-sm ">
+                  <a href="/chinh-sach-bao-mat" class="text-decoration-none text-dark">Chính sách bảo mật</a>
+               </div>
             </div>
-            <div class="col-md-5 col-12">
-                <div class="d-flex mb-2">
-                    <div class="text-sm font-weight-bold mr-1">Địa chỉ: </div>
-                    <div class="text-sm flex-fill"> Trường cao đẳng FPT Hà Nội</div>
-                </div>
-                <div class="d-flex mb-2">
-                    <div class="text-sm font-weight-bold mr-1">Hotline:</div>
-                    <div class="text-sm"> 0123456789</div>
-                </div>
+         </div>
+         <div class="col-md-5 col-12">
+            <div class="d-flex mb-2">
+               <div class="text-sm font-weight-bold mr-1">Địa chỉ:</div>
+               <div class="text-sm flex-fill"> Trường cao đẳng FPT Hà Nội</div>
             </div>
-        </div>
+            <div class="d-flex mb-2">
+               <div class="text-sm font-weight-bold mr-1">Hotline:</div>
+               <div class="text-sm"> 0123456789</div>
+            </div>
+         </div>
+      </div>
 
-    </div>
-    <hr>
-    <div class="row col-4 offset-5 pb-3">
-        <p> © 2024 G4 . Đã đăng ký Bản quyền</p>
-    </div>
+   </div>
+   <hr>
+   <div class="row col-4 offset-5 pb-3">
+      <p> © 2024 G4 . Đã đăng ký Bản quyền</p>
+   </div>
 </footer>
 <!-- Include Bootstrap JS and jQuery (if needed) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -175,85 +174,85 @@
 </html>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
      data-bs-backdrop="static">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Thêm Khách Hàng</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form:form id="edit-form" modelAttribute="kh" method="post" action="/admin/khach-hang/store">
-                    <div class="row mb-3">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="hoVaTen" class="form-label">Họ và tên</label>
-                                <form:input type="text" path="hoVaTen" id="hoVaTen" class="form-control"/>
-                                    <%--                                                required="true"/>--%>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="soDienThoai" class="form-label">Số điện thoại</label>
-                                <form:input type="tel" path="soDienThoai" id="soDienThoaiTK" class="form-control"/>
-                                    <%--                                                required="true"/>--%>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="email" class="form-label">Email</label>
-                                <form:input type="email" path="email" id="emailTK" class="form-control"/>
-                                    <%--                                                required="true"/>--%>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="tinhThanhPho" class="form-label">Tỉnh/Thành phố</label>
-                                <form:input type="text" path="tinhThanhPho" class="form-control" disabled="true"/>
-                                <select id="provinceSelect" class="form-select">
-                                    <option value="" disabled selected>Chọn tỉnh/thành phố</option>
-                                </select>
-                                <form:input type="hidden" path="tinhThanhPho" id="provinceName" class="form-control" />
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="quanHuyen" class="form-label">Quận/Huyện</label>
-                                <form:input type="text" path="quanHuyen"  class="form-control" disabled="true"/>
-                                <select id="districtSelect" class="form-select">
-                                    <option value="" disabled selected>Chọn quận/huyện</option>
-                                </select>
-                                <form:input type="hidden" path="quanHuyen" id="districtName" class="form-control"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="xaPhuong" class="form-label">Xã/Phường</label>
-                                <form:input type="text" path="xaPhuong" class="form-control" disabled="true"/>
-                                <select id="wardSelect" class="form-select">
-                                    <option value="" disabled selected>Chọn phường/xã</option>
-                                </select>
-                                <form:input type="hidden" path="xaPhuong" id="wardName" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="diaChi" class="form-label">Địa chỉ</label>
-                                <form:input type="text" path="diaChi" id="diaChiTK" class="form-control"/>
-                                    <%--                                                required="true"/>--%>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-success mt-3">Lưu</button>
-                </form:form>
-            </div>
-        </div>
-    </div>
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Thêm Khách Hàng</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+            <form:form id="edit-form" modelAttribute="kh" method="post" action="/admin/khach-hang/store">
+               <div class="row mb-3">
+                  <div class="col">
+                     <div class="form-group">
+                        <label for="hoVaTen" class="form-label">Họ và tên</label>
+                        <form:input type="text" path="hoVaTen" id="hoVaTen" class="form-control"/>
+                           <%--                                                required="true"/>--%>
+                     </div>
+                  </div>
+               </div>
+               <div class="row mb-3">
+                  <div class="col">
+                     <div class="form-group">
+                        <label for="soDienThoai" class="form-label">Số điện thoại</label>
+                        <form:input type="tel" path="soDienThoai" id="soDienThoaiTK" class="form-control"/>
+                           <%--                                                required="true"/>--%>
+                     </div>
+                  </div>
+                  <div class="col">
+                     <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <form:input type="email" path="email" id="emailTK" class="form-control"/>
+                           <%--                                                required="true"/>--%>
+                     </div>
+                  </div>
+               </div>
+               <div class="row mb-3">
+                  <div class="col">
+                     <div class="form-group">
+                        <label for="tinhThanhPho" class="form-label">Tỉnh/Thành phố</label>
+                        <form:input type="text" path="tinhThanhPho" class="form-control" disabled="true"/>
+                        <select id="provinceSelect" class="form-select">
+                           <option value="" disabled selected>Chọn tỉnh/thành phố</option>
+                        </select>
+                        <form:input type="hidden" path="tinhThanhPho" id="provinceName" class="form-control"/>
+                     </div>
+                  </div>
+                  <div class="col">
+                     <div class="form-group">
+                        <label for="quanHuyen" class="form-label">Quận/Huyện</label>
+                        <form:input type="text" path="quanHuyen" class="form-control" disabled="true"/>
+                        <select id="districtSelect" class="form-select">
+                           <option value="" disabled selected>Chọn quận/huyện</option>
+                        </select>
+                        <form:input type="hidden" path="quanHuyen" id="districtName" class="form-control"/>
+                     </div>
+                  </div>
+               </div>
+               <div class="row mb-3">
+                  <div class="col">
+                     <div class="form-group">
+                        <label for="xaPhuong" class="form-label">Xã/Phường</label>
+                        <form:input type="text" path="xaPhuong" class="form-control" disabled="true"/>
+                        <select id="wardSelect" class="form-select">
+                           <option value="" disabled selected>Chọn phường/xã</option>
+                        </select>
+                        <form:input type="hidden" path="xaPhuong" id="wardName" class="form-control"/>
+                     </div>
+                  </div>
+                  <div class="col">
+                     <div class="form-group">
+                        <label for="diaChi" class="form-label">Địa chỉ</label>
+                        <form:input type="text" path="diaChi" id="diaChiTK" class="form-control"/>
+                           <%--                                                required="true"/>--%>
+                     </div>
+                  </div>
+               </div>
+               <button type="submit" class="btn btn-success mt-3">Lưu</button>
+            </form:form>
+         </div>
+      </div>
+   </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
