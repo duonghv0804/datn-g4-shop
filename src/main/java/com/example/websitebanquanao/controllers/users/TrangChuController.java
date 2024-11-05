@@ -76,6 +76,7 @@ public class TrangChuController {
 
     private static final String redirect = "redirect:/";
 
+
     // trang chủ
     @GetMapping("")
     public String trangChu(Model model, @ModelAttribute("successMessage") String successMessage) {
@@ -142,8 +143,21 @@ public class TrangChuController {
 //        model.addAttribute("viewContent", "/views/user/khuyen-mai.jsp");
 //        return "user/layout";
 //    }
-//
-//    @ModelAttribute("gioHang")
+
+    // =================================================
+    // Module Cart
+    // =================================================
+//    @ModelAttribute("countCartItem") // so luong san pham trong gio hang
+//    public int countCartItem() {
+//        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
+//        if(khachHangResponse != null) {
+//            return gioHangChiTietService.sumSoLuongByIdKhachHang(khachHangResponse.getId());
+//        } else {
+//            return 0;
+//        }
+//    }
+
+//    @ModelAttribute("gioHang") // tao gio hang ban dau
 //    public GioHangUserRequest taoGioHangUserRequest() {
 //        return new GioHangUserRequest();
 //    }
@@ -258,7 +272,10 @@ public class TrangChuController {
 //        session.setAttribute("thongBaoGiamGia", thongBaoGiamGia);
 //        return "redirect:/gio-hang";
 //    }
-//
+
+    // =================================================
+    // Module Payment
+    // =================================================
 //    // trang thanh toán
 //    @GetMapping("thanh-toan")
 //    public String thanhToan(Model model, RedirectAttributes redirectAttributes) {
@@ -382,6 +399,10 @@ public class TrangChuController {
 //        return "redirect:/hoa-don/" + id;
 //    }
 
+
+    // =================================================
+    // Module Auth
+    // =================================================
     // trang đăng nhập
     @GetMapping("/dang-nhap")
     public String dangNhap(Model model, @ModelAttribute("loginError") String loginError) {
@@ -459,6 +480,9 @@ public class TrangChuController {
         return "redirect:/";
     }
 
+    // =================================================
+    // Module cac trang tinh
+    // =================================================
 //    // trang giới thiệu
 //    @GetMapping("/gioi-thieu")
 //    public String gioiThieu(Model model) {
