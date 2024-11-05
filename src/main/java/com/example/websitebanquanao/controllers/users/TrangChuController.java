@@ -490,23 +490,23 @@ public class TrangChuController {
 //        model.addAttribute("viewContent", "/views/user/gioi-thieu.jsp");
 //        return "user/layout";
 //    }
-//
-//    // trang chính sách bảo mật
-//    @GetMapping("/chinh-sach-bao-mat")
-//    public String chinhSachBaoMat(Model model) {
-//        model.addAttribute("kh", khachHangRequest);
-//        model.addAttribute("viewContent", "/views/user/chinh-sach-bao-mat.jsp");
-//        return "user/layout";
-//    }
-//
-//    // trang chính sách đổi trả
-//    @GetMapping("/chinh-sach-doi-tra")
-//    public String chinhSachDoiTra(Model model) {
-//        model.addAttribute("kh", khachHangRequest);
-//        model.addAttribute("viewContent", "/views/user/chinh-sach-doi-tra.jsp");
-//        return "user/layout";
-//    }
-//
+
+    // trang chính sách bảo mật
+    @GetMapping("/chinh-sach-bao-mat")
+    public String chinhSachBaoMat(Model model) {
+        model.addAttribute("kh", khachHangRequest);
+        model.addAttribute("viewContent", "/views/user/chinh-sach-bao-mat.jsp");
+        return "user/layout";
+    }
+
+    // trang chính sách đổi trả
+    @GetMapping("/chinh-sach-doi-tra")
+    public String chinhSachDoiTra(Model model) {
+        model.addAttribute("kh", khachHangRequest);
+        model.addAttribute("viewContent", "/views/user/chinh-sach-doi-tra.jsp");
+        return "user/layout";
+    }
+
 //    @PostMapping("update/{id}")
 //    public String update(@PathVariable("id") UUID id, @Valid @ModelAttribute("kh") KhachHangRequest khachHangRequest, BindingResult result, Model model, RedirectAttributes redirectAttributes) {
 //        if (khachHangRequest.validUpdate()) {
