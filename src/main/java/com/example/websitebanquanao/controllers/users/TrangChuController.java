@@ -483,13 +483,13 @@ public class TrangChuController {
     // =================================================
     // Module cac trang tinh
     // =================================================
-//    // trang giới thiệu
-//    @GetMapping("/gioi-thieu")
-//    public String gioiThieu(Model model) {
-//        model.addAttribute("kh", khachHangRequest);
-//        model.addAttribute("viewContent", "/views/user/gioi-thieu.jsp");
-//        return "user/layout";
-//    }
+    // trang giới thiệu
+    @GetMapping("/gioi-thieu")
+    public String gioiThieu(Model model) {
+        model.addAttribute("kh", khachHangRequest);
+        model.addAttribute("viewContent", "/views/user/gioi-thieu.jsp");
+        return "user/layout";
+    }
 
     // trang chính sách bảo mật
     @GetMapping("/chinh-sach-bao-mat")
