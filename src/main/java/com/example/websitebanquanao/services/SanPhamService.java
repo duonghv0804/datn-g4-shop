@@ -172,82 +172,82 @@ public class SanPhamService {
 
 
     // user
-//    public List<TrangChuResponse> getListTrangChu(String sort) {
-//        List<TrangChuResponse> list = sanPhamRepository.getListTrangChu();
-//        if (sort != null) {
-//            if (sort.equals("asc")) {
-//                list.sort(Comparator.comparing(TrangChuResponse::getGia));
-//            } else if (sort.equals("desc")) {
-//                list.sort(Comparator.comparing(TrangChuResponse::getGia).reversed());
-//            }
-//        }
-//        return list;
-//    }
-//
-//    public List<TrangChuResponse> getListBanChay(String sort) {
-//        List<TrangChuResponse> list = transformToResponse(sanPhamRepository.getTop5BestSellingProducts());
-//        if (sort != null) {
-//            if (sort.equals("asc")) {
-//                list.sort(Comparator.comparing(TrangChuResponse::getGia));
-//            } else if (sort.equals("desc")) {
-//                list.sort(Comparator.comparing(TrangChuResponse::getGia).reversed());
-//            }
-//        }
-//        return list;
-//    }
-//
-//    public List<TrangChuResponse> getListSanPhamByIdLoai(Integer idLoai, String sort) {
-//        List<TrangChuResponse> list = sanPhamRepository.getListSanPhamByIdLoai(idLoai);
-//        if (sort != null) {
-//            if (sort.equals("asc")) {
-//                list.sort(Comparator.comparing(TrangChuResponse::getGia));
-//            } else if (sort.equals("desc")) {
-//                list.sort(Comparator.comparing(TrangChuResponse::getGia).reversed());
-//            }
-//        }
-//        return list;
-//    }
-//
-//    public List<TrangChuResponse> getListSale(String sort) {
-//        List<TrangChuResponse> list = sanPhamRepository.getListSale();
-//        if (sort != null) {
-//            if (sort.equals("asc")) {
-//                list.sort(Comparator.comparing(TrangChuResponse::getGia));
-//            } else if (sort.equals("desc")) {
-//                list.sort(Comparator.comparing(TrangChuResponse::getGia).reversed());
-//            }
-//        }
-//        return list;
-//    }
-//
-//    public List<LoaiResponse> getListLoai() {
-//        return sanPhamRepository.getListLoai();
-//    }
-//
-//    public List<LoaiResponse> getListThuongHieu() {
-//        return sanPhamRepository.getListThuongHieu();
-//    }
-//
-//    public List<LoaiResponse> getListSex() {
-//        return sanPhamRepository.getListThuongHieu();
-//    }
-//
-//
-//    public SanPhamChiTietUserResponse getByIdSanPham(UUID idSanPham) {
-//        return sanPhamRepository.getByIdSanPham(idSanPham);
-//    }
-//
-//    public SanPhamChiTietUserResponse getByIdSanPhamAndIdMauSacAndIdKichCo(UUID idSanPham, Integer idMauSac, Integer idKichCo) {
-//        return sanPhamRepository.getByIdSanPhamAndIdMauSacAndIdKichCo(idSanPham, idMauSac, idKichCo);
-//    }
-//
-//    public Integer getMinIdKichCoByIdMauSacnAndIdSanPham(UUID idSanPham, Integer idMauSac) {
-//        return sanPhamRepository.getMinIdKichCoByIdMauSacnAndIdSanPham(idSanPham, idMauSac);
-//    }
-//
-//    public UUID getIdSanPhamChiTietByIdMauSacnAndIdSanPham(UUID idSanPham, Integer idMauSac, Integer idKichCo) {
-//        return sanPhamRepository.getIdSanPhamChiTietByIdMauSacnAndIdSanPham(idSanPham, idMauSac, idKichCo);
-//    }
+    public List<TrangChuResponse> getListTrangChu(String sort) {
+        List<TrangChuResponse> list = sanPhamRepository.getListTrangChu();
+        if (sort != null) {
+            if (sort.equals("asc")) {
+                list.sort(Comparator.comparing(TrangChuResponse::getGia));
+            } else if (sort.equals("desc")) {
+                list.sort(Comparator.comparing(TrangChuResponse::getGia).reversed());
+            }
+        }
+        return list;
+    }
+
+    public List<TrangChuResponse> getListBanChay(String sort) {
+        List<TrangChuResponse> list = transformToResponse(sanPhamRepository.getTop5BestSellingProducts());
+        if (sort != null) {
+            if (sort.equals("asc")) {
+                list.sort(Comparator.comparing(TrangChuResponse::getGia));
+            } else if (sort.equals("desc")) {
+                list.sort(Comparator.comparing(TrangChuResponse::getGia).reversed());
+            }
+        }
+        return list;
+    }
+
+    public List<TrangChuResponse> getListSanPhamByIdLoai(Integer idLoai, String sort) {
+        List<TrangChuResponse> list = sanPhamRepository.getListSanPhamByIdLoai(idLoai);
+        if (sort != null) {
+            if (sort.equals("asc")) {
+                list.sort(Comparator.comparing(TrangChuResponse::getGia));
+            } else if (sort.equals("desc")) {
+                list.sort(Comparator.comparing(TrangChuResponse::getGia).reversed());
+            }
+        }
+        return list;
+    }
+
+    public List<TrangChuResponse> getListSale(String sort) {
+        List<TrangChuResponse> list = sanPhamRepository.getListSale();
+        if (sort != null) {
+            if (sort.equals("asc")) {
+                list.sort(Comparator.comparing(TrangChuResponse::getGia));
+            } else if (sort.equals("desc")) {
+                list.sort(Comparator.comparing(TrangChuResponse::getGia).reversed());
+            }
+        }
+        return list;
+    }
+
+    public List<LoaiResponse> getListLoai() {
+        return sanPhamRepository.getListLoai();
+    }
+
+    public List<LoaiResponse> getListThuongHieu() {
+        return sanPhamRepository.getListThuongHieu();
+    }
+
+    public List<LoaiResponse> getListSex() {
+        return sanPhamRepository.getListThuongHieu();
+    }
+
+
+    public SanPhamChiTietUserResponse getByIdSanPham(UUID idSanPham) {
+        return sanPhamRepository.getByIdSanPham(idSanPham);
+    }
+
+    public SanPhamChiTietUserResponse getByIdSanPhamAndIdMauSacAndIdKichCo(UUID idSanPham, Integer idMauSac, Integer idKichCo) {
+        return sanPhamRepository.getByIdSanPhamAndIdMauSacAndIdKichCo(idSanPham, idMauSac, idKichCo);
+    }
+
+    public Integer getMinIdKichCoByIdMauSacnAndIdSanPham(UUID idSanPham, Integer idMauSac) {
+        return sanPhamRepository.getMinIdKichCoByIdMauSacnAndIdSanPham(idSanPham, idMauSac);
+    }
+
+    public UUID getIdSanPhamChiTietByIdMauSacnAndIdSanPham(UUID idSanPham, Integer idMauSac, Integer idKichCo) {
+        return sanPhamRepository.getIdSanPhamChiTietByIdMauSacnAndIdSanPham(idSanPham, idMauSac, idKichCo);
+    }
 
     public List<SanPham> getAllKhuyenMai2() {
         return sanPhamRepository.getAllKhuyenMai2();

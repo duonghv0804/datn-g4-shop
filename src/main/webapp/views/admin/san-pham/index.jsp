@@ -43,11 +43,52 @@
     <h1 class="text-center">Quản Lý Sản Phẩm</h1>
 
     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Thêm sản phẩm
+        Thêm mới
     </button>
 
     <div class="row">
-        <div>
+<%--        <div class="mt-2">--%>
+<%--            <!-- Tìm kiếm theo tên -->--%>
+<%--            <div class="col-4 ms-1 mt-3">--%>
+<%--                <input type="text" id="searchInput" class="form-control" placeholder="Tìm kiếm theo tên, mã"--%>
+<%--                       onkeypress="searchByName(event)">--%>
+<%--            </div>--%>
+<%--            <!-- lọc đang bán-ngừng bán -->--%>
+<%--            <div class="col-2 ms-1 mt-3">--%>
+<%--                <select id="statusSelect" class="form-select" aria-label="Default select example"--%>
+<%--                        onchange="applyFilters()">--%>
+<%--                    <option value="" ${param.trangThai == null ? 'selected' : ''}>Tất cả</option>--%>
+<%--                    <option value="1" ${param.trangThai == '1' ? 'selected' : ''}>Còn hàng</option>--%>
+<%--                    <option value="0" ${param.trangThai == '0' ? 'selected' : ''}>Hết hàng</option>--%>
+
+<%--                </select>--%>
+<%--            </div>--%>
+<%--            <!-- lọc theo màu sắc -->--%>
+<%--            <div class="col-2 ms-1 mt-3">--%>
+<%--                <select id="colorSelect" class="form-select" aria-label="Default select example"--%>
+<%--                        onchange="applyFilters()">--%>
+<%--                    <option value="" ${param.tenMauSac == null ? 'selected' : ''}>Tất cả màu sắc</option>--%>
+<%--                    <c:forEach items="${listMauSac}" var="color">--%>
+<%--                        <option value="${color.ten}" ${param.tenMauSac == color.ten ? 'selected' : ''}>--%>
+<%--                                ${color.ten}--%>
+<%--                        </option>--%>
+<%--                    </c:forEach>--%>
+<%--                </select>--%>
+<%--            </div>--%>
+<%--            <!-- Lọc theo kích cỡ -->--%>
+<%--            <div class="col-2 ms-1 mt-3">--%>
+<%--                <select id="sizeSelect" class="form-select" aria-label="Default select example"--%>
+<%--                        onchange="applyFilters()">--%>
+<%--                    <option value="" ${param.tenKichCo == null ? 'selected' : ''}>Tất cả kích cỡ</option>--%>
+<%--                    <c:forEach items="${listKichCo}" var="size">--%>
+<%--                        <option value="${size.ten}" ${param.tenKichCo == size.ten ? 'selected' : ''}>--%>
+<%--                                ${size.ten}--%>
+<%--                        </option>--%>
+<%--                    </c:forEach>--%>
+<%--                </select>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+        <div class="mt-2">
             <table class="table table-bordered mt-3 text-center">
                 <thead>
                 <tr>
@@ -105,7 +146,7 @@
         </div>
     </div>
 
-
+    <!-- modal update sp-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
          data-bs-backdrop="static">
         <div class="modal-dialog">
@@ -245,7 +286,7 @@
                                 // Check if the "Câu Lạc Bộ" select is not selected
                                 if (idSexSelect.value === '') {
                                     event.preventDefault();
-                                    alert('Vui lòng chọn Câu Lạc Bộ.');
+                                    alert('Vui lòng chọn Giới tính.');
                                     return;
                                 }
 
@@ -266,7 +307,7 @@
 
     <div class="mt-3">
         <div class="text-center">
-            <c:if test="${sanPhamPage.totalPages > 1}">
+            <c:if test="${sanPhamPage.totalPages > 0}">
                 <ul class="pagination">
                     <li class="page-item <c:if test="${sanPhamPage.number == 0}">disabled</c:if>">
                         <a class="page-link" href="?page=1">First</a>

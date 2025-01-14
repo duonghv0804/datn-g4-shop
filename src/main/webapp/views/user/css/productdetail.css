@@ -1,0 +1,40 @@
+
+  /* slide */
+  .slide-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.slide-wrapper {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+.slide {
+    flex: 0 0 33.33%;
+    padding: 10px;
+    text-align: center;
+}
+.slide img {
+    max-width: 100%;
+    height: auto;
+}
+.slide-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px 15px;
+    cursor: pointer;
+}
+.slide-button-prev {
+    left: 0;
+}
+.slide-button-next {
+    right: 0;
+}
+
+
+  /* footer */
+  footer{
+    background: var(--gray, #E4E4E4);
+}

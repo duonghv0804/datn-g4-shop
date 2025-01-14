@@ -41,7 +41,7 @@ public class KhachHangService {
         khachHang.setXaPhuong(khachHangRequest.getXaPhuong());
         khachHang.setQuanHuyen(khachHangRequest.getQuanHuyen());
         khachHang.setTinhThanhPho(khachHangRequest.getTinhThanhPho());
-        khachHang.setTrangThai(0);
+        khachHang.setTrangThai(0); // trang thai active tai khoan
         java.util.Date currentDate = new java.util.Date();
         khachHang.setNgayTao(new java.sql.Date(currentDate.getTime()));
         khachHang.setNgaySua(new java.sql.Date(currentDate.getTime()));

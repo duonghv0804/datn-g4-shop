@@ -1,0 +1,42 @@
+
+/* banner */
+
+.banner {
+    width: auto;
+    height: 324px;
+    background-image: url(./img/banner.png);
+    background-size: cover;
+    background-position: 50% 50%;
+    text-align: center; /* Center align the content */
+}
+
+.banner .text {
+    padding: 30px; /* Add padding for spacing */
+    border-radius: 8px; /* Add rounded corners to the container */
+}
+
+.banner .text-header {
+    font-family: var(--header-heading-3-font-family);
+    font-weight: var(--header-heading-3-font-weight);
+    color: #ffffff;
+    font-size: var(--header-heading-3-font-size);
+    letter-spacing: var(--header-heading-3-letter-spacing);
+    line-height: var(--header-heading-3-line-height);
+    font-style: var(--header-heading-3-font-style);
+}
+
+.banner .text-bot {
+    font-family: var(--body-regular-font-family);
+    font-weight: var(--body-regular-font-weight);
+    color: #ffffff;
+    font-size: var(--body-regular-font-size);
+    letter-spacing: var(--body-regular-letter-spacing);
+    line-height: var(--body-regular-line-height);
+    font-style: var(--body-regular-font-style);
+}
+
+
+  /* footer */
+  footer{
+    background: var(--gray, #E4E4E4);
+}

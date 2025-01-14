@@ -141,7 +141,6 @@ public class NhanVienService {
 
     //    check login
     public NhanVienRequest checkLogin(String email, String matKhau) {
-        ;
         NhanVien nhanVien = nhanVienRepository.checkLogin(email, matKhau);
         if (nhanVien != null) {
             NhanVienRequest nhanVienRequest = new NhanVienRequest();
@@ -166,14 +165,17 @@ public class NhanVienService {
     }
 
     public boolean isPasswordValid(String password) {
+        //
         return password.matches("^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$");
     }
 
     public boolean isSoDienThoai(String soDienThoai) {
+        //
         return soDienThoai.matches("^0[0-9]{9,10}$");
     }
 
     public boolean isEmail(String email) {
+        //
         return email.matches("^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6})*$");
     }
 

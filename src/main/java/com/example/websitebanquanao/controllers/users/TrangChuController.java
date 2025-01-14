@@ -134,270 +134,270 @@ public class TrangChuController {
 //        model.addAttribute("viewContent", "/views/user/san-pham-chi-tiet.jsp");
 //        return "user/layout";
 //    }
-//
-//    // trang sản phẩm sale
-//    @GetMapping("/sale")
-//    public String sanPhamSale(Model model, @RequestParam(defaultValue = "", name = "sort", required = false) String sort) {
-//        model.addAttribute("listSanPham", sanPhamService.getListSale(sort));
-//        model.addAttribute("kh", khachHangRequest);
-//        model.addAttribute("viewContent", "/views/user/khuyen-mai.jsp");
-//        return "user/layout";
-//    }
+
+    // trang sản phẩm sale
+    @GetMapping("/sale")
+    public String sanPhamSale(Model model, @RequestParam(defaultValue = "", name = "sort", required = false) String sort) {
+        model.addAttribute("listSanPham", sanPhamService.getListSale(sort));
+        model.addAttribute("kh", khachHangRequest);
+        model.addAttribute("viewContent", "/views/user/khuyen-mai.jsp");
+        return "user/layout";
+    }
 
     // =================================================
     // Module Cart
     // =================================================
-//    @ModelAttribute("countCartItem") // so luong san pham trong gio hang
-//    public int countCartItem() {
-//        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
-//        if(khachHangResponse != null) {
-//            return gioHangChiTietService.sumSoLuongByIdKhachHang(khachHangResponse.getId());
-//        } else {
-//            return 0;
-//        }
-//    }
+    @ModelAttribute("countCartItem") // so luong san pham trong gio hang
+    public int countCartItem() {
+        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
+        if(khachHangResponse != null) {
+            return gioHangChiTietService.sumSoLuongByIdKhachHang(khachHangResponse.getId());
+        } else {
+            return 0;
+        }
+    }
 
-//    @ModelAttribute("gioHang") // tao gio hang ban dau
-//    public GioHangUserRequest taoGioHangUserRequest() {
-//        return new GioHangUserRequest();
-//    }
-//
-//    // trang giỏ hàng
-//    @GetMapping("/gio-hang")
-//    public String gioHang(Model model, @ModelAttribute("thongBaoGiamGia") String thoangBaoGiamGia) {
-//        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
-//        model.addAttribute("kh", khachHangRequest);
-//        model.addAttribute("listGG", giamGiaService.getAll());
-//        GiamGiaResponse giamGiaResponse = (GiamGiaResponse) session.getAttribute("giamGia");
-//        if (khachHangResponse == null) {
-//            return "redirect:/dang-nhap";
-//        } else {
-//            BigDecimal tongTien = gioHangChiTietService.getTongTienByIdKhachHang(khachHangResponse.getId());
-//            List<GioHangUserResponse> listGioHang = gioHangChiTietService.getListByIdKhachHang(khachHangResponse.getId());
-//            model.addAttribute("listGioHang", listGioHang);
-//            if (listGioHang.isEmpty()) {
-//                model.addAttribute("nutThanhToan", 0);
-//            } else {
-//                model.addAttribute("nutThanhToan", 1);
-//            }
-//            model.addAttribute("tongTien", tongTien.intValue());
-//            if (giamGiaResponse != null) {
-//                int soPhanTramGiam = giamGiaResponse.getSoPhanTramGiam();
-//                BigDecimal soTienDuocGiam = tongTien.multiply(new BigDecimal(soPhanTramGiam).divide(new BigDecimal(100)));
-//                BigDecimal soTienSauKhiGiam = tongTien.subtract(soTienDuocGiam);
-//                model.addAttribute("soTienDuocGiam", soTienDuocGiam.intValue());
-//                model.addAttribute("soTienSauKhiGiam", soTienSauKhiGiam.intValue());
-//                model.addAttribute("thongBaoGiamGia", thoangBaoGiamGia);
-//            } else {
-//                model.addAttribute("soTienDuocGiam", 0);
-//                model.addAttribute("soTienSauKhiGiam", tongTien.intValue());
-//                model.addAttribute("thongBaoGiamGia", "");
-//            }
+    @ModelAttribute("gioHang") // tao gio hang ban dau
+    public GioHangUserRequest taoGioHangUserRequest() {
+        return new GioHangUserRequest();
+    }
+
+    // trang giỏ hàng
+    @GetMapping("/gio-hang")
+    public String gioHang(Model model, @ModelAttribute("thongBaoGiamGia") String thoangBaoGiamGia) {
+        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
+        model.addAttribute("kh", khachHangRequest);
+        model.addAttribute("listGG", giamGiaService.getAll());
+        GiamGiaResponse giamGiaResponse = (GiamGiaResponse) session.getAttribute("giamGia");
+        if (khachHangResponse == null) {
+            return "redirect:/dang-nhap";
+        } else {
+            BigDecimal tongTien = gioHangChiTietService.getTongTienByIdKhachHang(khachHangResponse.getId());
+            List<GioHangUserResponse> listGioHang = gioHangChiTietService.getListByIdKhachHang(khachHangResponse.getId());
+            model.addAttribute("listGioHang", listGioHang);
+            if (listGioHang.isEmpty()) {
+                model.addAttribute("nutThanhToan", 0);
+            } else {
+                model.addAttribute("nutThanhToan", 1);
+            }
+            model.addAttribute("tongTien", tongTien.intValue());
+            if (giamGiaResponse != null) {
+                int soPhanTramGiam = giamGiaResponse.getSoPhanTramGiam();
+                BigDecimal soTienDuocGiam = tongTien.multiply(new BigDecimal(soPhanTramGiam).divide(new BigDecimal(100)));
+                BigDecimal soTienSauKhiGiam = tongTien.subtract(soTienDuocGiam);
+                model.addAttribute("soTienDuocGiam", soTienDuocGiam.intValue());
+                model.addAttribute("soTienSauKhiGiam", soTienSauKhiGiam.intValue());
+                model.addAttribute("thongBaoGiamGia", thoangBaoGiamGia);
+            } else {
+                model.addAttribute("soTienDuocGiam", 0);
+                model.addAttribute("soTienSauKhiGiam", tongTien.intValue());
+                model.addAttribute("thongBaoGiamGia", "");
+            }
+        }
+
+        String thongBaoGiamGia = (String) session.getAttribute("thongBaoGiamGia");
+        if (thongBaoGiamGia != null) {
+            model.addAttribute("thongBaoGiamGia", thongBaoGiamGia);
+            session.removeAttribute("thongBaoGiamGia");
+        }
+
+        model.addAttribute("viewContent", "/views/user/gio-hang.jsp");
+        return "user/layout";
+    }
+
+    // thêm sản phẩm vào giả hàng trang chi tiết
+    @PostMapping("/gio-hang/{id}")
+    public String themGioHang(@ModelAttribute("gioHang") GioHangUserRequest gioHangUserRequest, @PathVariable("id") UUID id, RedirectAttributes redirectAttributes) {
+        UUID idSanPhamChiTiet = sanPhamService.getIdSanPhamChiTietByIdMauSacnAndIdSanPham(id, gioHangUserRequest.getIdMauSac(), gioHangUserRequest.getIdKichCo());
+        SanPhamChiTiet ctsp = ctspService.findById(idSanPhamChiTiet);
+        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
+        GioHangChiTiet gioHang = gioHangChiTietRepository.findByIdSanPhamChiTietIdAndIdGioHangId(ctsp.getId(), khachHangResponse.getId());
+        int soLuong = 0;
+        if (gioHang != null) {
+            soLuong = gioHang.getSoLuong();
+        }
+        if ((gioHangUserRequest.getSoLuong() + soLuong) > ctsp.getSoLuong()) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Số lượng sản phẩm trong kho không đủ ");
+        } else {
+            gioHangChiTietService.add(id, khachHangResponse.getId(), gioHangUserRequest);
+        }
+        return "redirect:/gio-hang";
+    }
+
+    // thay dổi số lượng sản phẩm trong giỏ hàng
+    @PostMapping("/gio-hang/update/{id}")
+    public String capNhatGioHang(@PathVariable("id") UUID id, @RequestParam("soLuong") Integer soLuong, RedirectAttributes redirectAttributes) {
+        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
+        SanPhamChiTiet ctsp = ctspService.findById(id);
+        if (soLuong > ctsp.getSoLuong()) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Hết hàng");
+            return "redirect:/gio-hang";
+        }
+        gioHangChiTietService.updateByIdSanPhamChiTietAndIdKhachHang(id, khachHangResponse.getId(), soLuong);
+        return "redirect:/gio-hang";
 //        }
-//
-//        String thongBaoGiamGia = (String) session.getAttribute("thongBaoGiamGia");
-//        if (thongBaoGiamGia != null) {
-//            model.addAttribute("thongBaoGiamGia", thongBaoGiamGia);
-//            session.removeAttribute("thongBaoGiamGia");
-//        }
-//
-//        model.addAttribute("viewContent", "/views/user/gio-hang.jsp");
-//        return "user/layout";
-//    }
-//
-//    // thêm sản phẩm vào giả hàng trang chi tiết
-//    @PostMapping("/gio-hang/{id}")
-//    public String themGioHang(@ModelAttribute("gioHang") GioHangUserRequest gioHangUserRequest, @PathVariable("id") UUID id, RedirectAttributes redirectAttributes) {
-//        UUID idSanPhamChiTiet = sanPhamService.getIdSanPhamChiTietByIdMauSacnAndIdSanPham(id, gioHangUserRequest.getIdMauSac(), gioHangUserRequest.getIdKichCo());
-//        SanPhamChiTiet ctsp = ctspService.findById(idSanPhamChiTiet);
-//        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
-//        GioHangChiTiet gioHang = gioHangChiTietRepository.findByIdSanPhamChiTietIdAndIdGioHangId(ctsp.getId(), khachHangResponse.getId());
-//        int soLuong = 0;
-//        if (gioHang != null) {
-//            soLuong = gioHang.getSoLuong();
-//        }
-//        if ((gioHangUserRequest.getSoLuong() + soLuong) > ctsp.getSoLuong()) {
-//            redirectAttributes.addFlashAttribute("errorMessage", "Số lượng sản phẩm trong kho không đủ ");
-//        } else {
-//            gioHangChiTietService.add(id, khachHangResponse.getId(), gioHangUserRequest);
-//        }
-//        return "redirect:/gio-hang";
-//    }
-//
-//    // thay dổi số lượng sản phẩm trong giỏ hàng
-//    @PostMapping("/gio-hang/update/{id}")
-//    public String capNhatGioHang(@PathVariable("id") UUID id, @RequestParam("soLuong") Integer soLuong, RedirectAttributes redirectAttributes) {
-//        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
-//        SanPhamChiTiet ctsp = ctspService.findById(id);
-//        if (soLuong > ctsp.getSoLuong()) {
-//            redirectAttributes.addFlashAttribute("errorMessage", "Hết hàng");
-//            return "redirect:/gio-hang";
-//        }
-//        gioHangChiTietService.updateByIdSanPhamChiTietAndIdKhachHang(id, khachHangResponse.getId(), soLuong);
-//        return "redirect:/gio-hang";
-////        }
-//    }
-//
-//    // xóa sản phẩm trong giỏ hàng
-//    @GetMapping("/gio-hang/{id}")
-//    public String xoaGioHang(@PathVariable("id") UUID id) {
-//        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
-//        gioHangChiTietService.deleteByIdSanPhamChiTietAndIdKhachHang(id, khachHangResponse.getId());
-//        return "redirect:/gio-hang";
-//    }
-//
-//    // add voucher
-//    @PostMapping("/ap-dung-voucher")
-//    public String apDungVoucher(@RequestParam(value = "ma", required = false) GiamGia ma, HttpSession session) {
-//        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
-//        BigDecimal tongTien = gioHangChiTietService.getTongTienByIdKhachHang(khachHangResponse.getId());
-//        String thongBaoGiamGia = "";
-//        if (ma == null) {
-//            thongBaoGiamGia = "Phải chọn mã giảm giá.";
-//            session.setAttribute("thongBaoGiamGia", thongBaoGiamGia);
-//            return "redirect:/gio-hang";
-//        }
-//        GiamGiaResponse giamGiaResponse = giamGiaService.findByMa(ma.getMa());
-//        if (giamGiaResponse == null) {
-//            thongBaoGiamGia = "Mã giảm giá không tồn tại.";
-//        } else {
-//            if (tongTien.intValue() + 1 <= giamGiaResponse.getSoTienToiThieu()) {
-//                thongBaoGiamGia = "Mã giảm giá Không được áp dụng do chưa đử tiền tối thiểu";
-//                giamGiaResponse = null;
-//            } else {
-//                thongBaoGiamGia = "Đã áp dụng mã giảm giá.";
-//            }
-//        }
-//        session.setAttribute("giamGia", giamGiaResponse);
-//        session.setAttribute("thongBaoGiamGia", thongBaoGiamGia);
-//        return "redirect:/gio-hang";
-//    }
+    }
+
+    // xóa sản phẩm trong giỏ hàng
+    @GetMapping("/gio-hang/{id}")
+    public String xoaGioHang(@PathVariable("id") UUID id) {
+        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
+        gioHangChiTietService.deleteByIdSanPhamChiTietAndIdKhachHang(id, khachHangResponse.getId());
+        return "redirect:/gio-hang";
+    }
+
+    // add voucher
+    @PostMapping("/ap-dung-voucher")
+    public String apDungVoucher(@RequestParam(value = "ma", required = false) GiamGia ma, HttpSession session) {
+        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
+        BigDecimal tongTien = gioHangChiTietService.getTongTienByIdKhachHang(khachHangResponse.getId());
+        String thongBaoGiamGia = "";
+        if (ma == null) {
+            thongBaoGiamGia = "Phải chọn mã giảm giá.";
+            session.setAttribute("thongBaoGiamGia", thongBaoGiamGia);
+            return "redirect:/gio-hang";
+        }
+        GiamGiaResponse giamGiaResponse = giamGiaService.findByMa(ma.getMa());
+        if (giamGiaResponse == null) {
+            thongBaoGiamGia = "Mã giảm giá không tồn tại.";
+        } else {
+            if (tongTien.intValue() + 1 <= giamGiaResponse.getSoTienToiThieu()) {
+                thongBaoGiamGia = "Mã giảm giá Không được áp dụng do chưa đử tiền tối thiểu";
+                giamGiaResponse = null;
+            } else {
+                thongBaoGiamGia = "Đã áp dụng mã giảm giá.";
+            }
+        }
+        session.setAttribute("giamGia", giamGiaResponse);
+        session.setAttribute("thongBaoGiamGia", thongBaoGiamGia);
+        return "redirect:/gio-hang";
+    }
 
     // =================================================
     // Module Payment
     // =================================================
-//    // trang thanh toán
-//    @GetMapping("thanh-toan")
-//    public String thanhToan(Model model, RedirectAttributes redirectAttributes) {
-//        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
-//        GiamGiaResponse giamGiaResponse = (GiamGiaResponse) session.getAttribute("giamGia");
-//        model.addAttribute("kh", khachHangRequest);
-//        if (khachHangResponse == null) {
-//            return "redirect:/dang-nhap";
-//        } else {
-//            if (khachHangResponse.getDiaChi() == null) {
-//                redirectAttributes.addFlashAttribute("errorMessage", "Địa chỉ khách hàng vs sđt chưa được cập nhật, hãy cập nhật thêm (Thông Tin Tài Khoản) ở phần bên trái!");
-//                return "redirect:/gio-hang";
-//            } else {
-//                BigDecimal tongTien = gioHangChiTietService.getTongTienByIdKhachHang(khachHangResponse.getId());
-//                model.addAttribute("listGioHang", gioHangChiTietService.getListByIdKhachHang(khachHangResponse.getId()));
-//                model.addAttribute("sumSoLuong", gioHangChiTietService.sumSoLuongByIdKhachHang(khachHangResponse.getId()));
-//                session.setAttribute("khachHang", khachHangService.getById(khachHangResponse.getId()));
-//                model.addAttribute("khachHang", khachHangService.getById(khachHangResponse.getId()));
-//                model.addAttribute("listHTTT", hinhThucThanhToanService.getAll());
-//                model.addAttribute("tongTien", tongTien.intValue());
-//                if (giamGiaResponse != null) {
-//                    int soPhanTramGiam = giamGiaResponse.getSoPhanTramGiam();
-//                    BigDecimal soTienDuocGiam = tongTien.multiply(new BigDecimal(soPhanTramGiam).divide(new BigDecimal(100)));
-//                    BigDecimal soTienSauKhiGiam = tongTien.subtract(soTienDuocGiam);
-//                    model.addAttribute("soTienDuocGiam", soTienDuocGiam.intValue());
-//                    model.addAttribute("soTienSauKhiGiam", soTienSauKhiGiam.intValue());
-//                } else {
-//                    model.addAttribute("soTienDuocGiam", 0);
-//                    model.addAttribute("soTienSauKhiGiam", tongTien.intValue());
-//                }
-//            }
-//        }
-//        model.addAttribute("viewContent", "/views/user/thanh-toan.jsp");
-//        return "user/layout";
-//    }
-//
-//    @ModelAttribute("formThanhToan")
-//    public FormThanhToan formThanhToan() {
-//        return new FormThanhToan();
-//    }
-//
-//    // form thanh toán
-//    @PostMapping("thanh-toan")
-//    public String formThanhToan(Model model, @ModelAttribute("formThanhToan") FormThanhToan formThanhToan, @RequestParam(value = "diaChiMacDinh", required = false) Integer diaChiMacDinh, @RequestParam(value = "phiVanChuyen") String phiVanChuyen) {
-//        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
-//        GiamGiaResponse giamGiaResponse = (GiamGiaResponse) session.getAttribute("giamGia");
-//        BigDecimal tongTien = gioHangChiTietService.getTongTienByIdKhachHang(khachHangResponse.getId());
-//        String phi1 = phiVanChuyen.replace(" vnđ", "");
-//        String phi2 = phi1.replace(",", "");
-//        BigDecimal phiBigDecimal = BigDecimal.valueOf(Double.valueOf(phi2));
-//
-//        if (khachHangResponse == null) {
-//            return "redirect:/dang-nhap";
-//        } else {
-//            if (diaChiMacDinh == null) {
-//                diaChiMacDinh = 0;
-//            }
-//            if (giamGiaResponse == null) {
-//                BigDecimal soTienDuocGiam = null;
-//                UUID id = hoaDonService.addHoaDonUser(formThanhToan, khachHangResponse, null, diaChiMacDinh, tongTien, soTienDuocGiam, phiBigDecimal);
-//                return "redirect:/hoa-don/" + id;
-//            } else {
-//                int soPhanTramGiam = giamGiaResponse.getSoPhanTramGiam();
-//                BigDecimal soTienDuocGiam = tongTien.multiply(new BigDecimal(soPhanTramGiam).divide(new BigDecimal(100)));
-//                UUID id = hoaDonService.addHoaDonUser(formThanhToan, khachHangResponse, giamGiaResponse, diaChiMacDinh, tongTien, soTienDuocGiam, phiBigDecimal);
-//                session.setAttribute("giamGia", null);
-//                return "redirect:/hoa-don/" + id;
-//            }
-//        }
-//    }
-//
-//    // xem danh sách hoá đơn
-//    @GetMapping("/hoa-don")
-//    public String hoaDon(Model model,@RequestParam(name = "page", defaultValue = "1") int page) {
-//        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
-//        model.addAttribute("kh", khachHangRequest);
-//        if (khachHangResponse == null) {
-//            return "redirect:/dang-nhap";
-//        } else {
-//            model.addAttribute("listHoaDon", hoaDonChiTietService.getPage(khachHangResponse.getId(),page,10));
-//        }
-//        model.addAttribute("viewContent", "/views/user/hoa-don.jsp");
-//        return "user/layout";
-//    }
-//
-//    @GetMapping("/so-phan-tram-giam-gia/{id}")
-//    @ResponseBody
-//    public ResponseEntity<Integer> soPhanTramGiamGiamGia(@PathVariable("id") UUID id) {
-//        return ResponseEntity.ok(hoaDonService.getSoPhanTramGiamByIdHoaDon(id));
-//    }
-//
-//    // xem hoá đơn chi tiết
-//    @GetMapping("/hoa-don/{id}")
-//    public String hoaDonChiTiet(@PathVariable("id") UUID id, Model model) {
-//        model.addAttribute("hoaDon", hoaDonService.findHoaDonUserResponseById(id));
-//        model.addAttribute("listSanPhamTrongHoaDon", hoaDonChiTietService.getListByIdHoaDon(id));
-//        model.addAttribute("kh", khachHangRequest);
-//        model.addAttribute("id", id);
-//        model.addAttribute("listHTTT", hinhThucThanhToanService.getAll());
-//        session.setAttribute("idHoaDon", id);
-//
-//        BigDecimal tongTien = hoaDonChiTietService.sumTongTien(id);
-//        Integer soPhanTramGiam = hoaDonService.getSoPhanTramGiamByIdHoaDon(id);
-//        BigDecimal soTienDuocGiam = tongTien.multiply(new BigDecimal(soPhanTramGiam).divide(new BigDecimal(100)));
-//        System.out.println(tongTien.intValue() - soTienDuocGiam.intValue());
-//        model.addAttribute("soTienTruocGiam", hoaDonChiTietService.sumTongTien(id).intValue());
-//        model.addAttribute("soTienDuocGiam", soTienDuocGiam.intValue());
-//        model.addAttribute("soTienSauKhiGiam", tongTien.intValue() - soTienDuocGiam.intValue());
-//
-//        model.addAttribute("viewContent", "/views/user/hoa-don-chi-tiet.jsp");
-//        return "user/layout";
-//    }
-//
-//    @PostMapping("/hoa-don/update-trang-thai/{id}")
-//    public String updateTrangThaiHoaDon(@PathVariable("id") UUID id, @RequestParam("trangThai") Integer trangThai, @RequestParam("ghiChu") String ghiChu, RedirectAttributes redirectAttributes) {
-//        HoaDon hoaDon = hoaDonService.getById(id);
-//        hoaDon.setGhiChu(ghiChu);
-//        hoaDon.setTrangThai(trangThai);
-//        hoaDonService.update(hoaDon, id);
-//        redirectAttributes.addFlashAttribute("successMessage", "hóa đơn đã được hủy");
-//        return "redirect:/hoa-don/" + id;
-//    }
+    // trang thanh toán
+    @GetMapping("thanh-toan")
+    public String thanhToan(Model model, RedirectAttributes redirectAttributes) {
+        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
+        GiamGiaResponse giamGiaResponse = (GiamGiaResponse) session.getAttribute("giamGia");
+        model.addAttribute("kh", khachHangRequest);
+        if (khachHangResponse == null) {
+            return "redirect:/dang-nhap";
+        } else {
+            if (khachHangResponse.getDiaChi() == null) {
+                redirectAttributes.addFlashAttribute("errorMessage", "Địa chỉ khách hàng vs sđt chưa được cập nhật, hãy cập nhật thêm (Thông Tin Tài Khoản) ở phần bên trái!");
+                return "redirect:/gio-hang";
+            } else {
+                BigDecimal tongTien = gioHangChiTietService.getTongTienByIdKhachHang(khachHangResponse.getId());
+                model.addAttribute("listGioHang", gioHangChiTietService.getListByIdKhachHang(khachHangResponse.getId()));
+                model.addAttribute("sumSoLuong", gioHangChiTietService.sumSoLuongByIdKhachHang(khachHangResponse.getId()));
+                session.setAttribute("khachHang", khachHangService.getById(khachHangResponse.getId()));
+                model.addAttribute("khachHang", khachHangService.getById(khachHangResponse.getId()));
+                model.addAttribute("listHTTT", hinhThucThanhToanService.getAll());
+                model.addAttribute("tongTien", tongTien.intValue());
+                if (giamGiaResponse != null) {
+                    int soPhanTramGiam = giamGiaResponse.getSoPhanTramGiam();
+                    BigDecimal soTienDuocGiam = tongTien.multiply(new BigDecimal(soPhanTramGiam).divide(new BigDecimal(100)));
+                    BigDecimal soTienSauKhiGiam = tongTien.subtract(soTienDuocGiam);
+                    model.addAttribute("soTienDuocGiam", soTienDuocGiam.intValue());
+                    model.addAttribute("soTienSauKhiGiam", soTienSauKhiGiam.intValue());
+                } else {
+                    model.addAttribute("soTienDuocGiam", 0);
+                    model.addAttribute("soTienSauKhiGiam", tongTien.intValue());
+                }
+            }
+        }
+        model.addAttribute("viewContent", "/views/user/thanh-toan.jsp");
+        return "user/layout";
+    }
+
+    @ModelAttribute("formThanhToan")
+    public FormThanhToan formThanhToan() {
+        return new FormThanhToan();
+    }
+
+    // form thanh toán
+    @PostMapping("thanh-toan")
+    public String formThanhToan(Model model, @ModelAttribute("formThanhToan") FormThanhToan formThanhToan, @RequestParam(value = "diaChiMacDinh", required = false) Integer diaChiMacDinh, @RequestParam(value = "phiVanChuyen") String phiVanChuyen) {
+        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
+        GiamGiaResponse giamGiaResponse = (GiamGiaResponse) session.getAttribute("giamGia");
+        BigDecimal tongTien = gioHangChiTietService.getTongTienByIdKhachHang(khachHangResponse.getId());
+        String phi1 = phiVanChuyen.replace(" vnđ", "");
+        String phi2 = phi1.replace(",", "");
+        BigDecimal phiBigDecimal = BigDecimal.valueOf(Double.valueOf(phi2));
+
+        if (khachHangResponse == null) {
+            return "redirect:/dang-nhap";
+        } else {
+            if (diaChiMacDinh == null) {
+                diaChiMacDinh = 0;
+            }
+            if (giamGiaResponse == null) {
+                BigDecimal soTienDuocGiam = null;
+                UUID id = hoaDonService.addHoaDonUser(formThanhToan, khachHangResponse, null, diaChiMacDinh, tongTien, soTienDuocGiam, phiBigDecimal);
+                return "redirect:/hoa-don/" + id;
+            } else {
+                int soPhanTramGiam = giamGiaResponse.getSoPhanTramGiam();
+                BigDecimal soTienDuocGiam = tongTien.multiply(new BigDecimal(soPhanTramGiam).divide(new BigDecimal(100)));
+                UUID id = hoaDonService.addHoaDonUser(formThanhToan, khachHangResponse, giamGiaResponse, diaChiMacDinh, tongTien, soTienDuocGiam, phiBigDecimal);
+                session.setAttribute("giamGia", null);
+                return "redirect:/hoa-don/" + id;
+            }
+        }
+    }
+
+    // xem danh sách hoá đơn
+    @GetMapping("/hoa-don")
+    public String hoaDon(Model model,@RequestParam(name = "page", defaultValue = "1") int page) {
+        KhachHangResponse khachHangResponse = (KhachHangResponse) session.getAttribute("khachHang");
+        model.addAttribute("kh", khachHangRequest);
+        if (khachHangResponse == null) {
+            return "redirect:/dang-nhap";
+        } else {
+            model.addAttribute("listHoaDon", hoaDonChiTietService.getPage(khachHangResponse.getId(),page,10));
+        }
+        model.addAttribute("viewContent", "/views/user/hoa-don.jsp");
+        return "user/layout";
+    }
+
+    @GetMapping("/so-phan-tram-giam-gia/{id}")
+    @ResponseBody
+    public ResponseEntity<Integer> soPhanTramGiamGiamGia(@PathVariable("id") UUID id) {
+        return ResponseEntity.ok(hoaDonService.getSoPhanTramGiamByIdHoaDon(id));
+    }
+
+    // xem hoá đơn chi tiết
+    @GetMapping("/hoa-don/{id}")
+    public String hoaDonChiTiet(@PathVariable("id") UUID id, Model model) {
+        model.addAttribute("hoaDon", hoaDonService.findHoaDonUserResponseById(id));
+        model.addAttribute("listSanPhamTrongHoaDon", hoaDonChiTietService.getListByIdHoaDon(id));
+        model.addAttribute("kh", khachHangRequest);
+        model.addAttribute("id", id);
+        model.addAttribute("listHTTT", hinhThucThanhToanService.getAll());
+        session.setAttribute("idHoaDon", id);
+
+        BigDecimal tongTien = hoaDonChiTietService.sumTongTien(id);
+        Integer soPhanTramGiam = hoaDonService.getSoPhanTramGiamByIdHoaDon(id);
+        BigDecimal soTienDuocGiam = tongTien.multiply(new BigDecimal(soPhanTramGiam).divide(new BigDecimal(100)));
+        System.out.println(tongTien.intValue() - soTienDuocGiam.intValue());
+        model.addAttribute("soTienTruocGiam", hoaDonChiTietService.sumTongTien(id).intValue());
+        model.addAttribute("soTienDuocGiam", soTienDuocGiam.intValue());
+        model.addAttribute("soTienSauKhiGiam", tongTien.intValue() - soTienDuocGiam.intValue());
+
+        model.addAttribute("viewContent", "/views/user/hoa-don-chi-tiet.jsp");
+        return "user/layout";
+    }
+
+    @PostMapping("/hoa-don/update-trang-thai/{id}")
+    public String updateTrangThaiHoaDon(@PathVariable("id") UUID id, @RequestParam("trangThai") Integer trangThai, @RequestParam("ghiChu") String ghiChu, RedirectAttributes redirectAttributes) {
+        HoaDon hoaDon = hoaDonService.getById(id);
+        hoaDon.setGhiChu(ghiChu);
+        hoaDon.setTrangThai(trangThai);
+        hoaDonService.update(hoaDon, id);
+        redirectAttributes.addFlashAttribute("successMessage", "hóa đơn đã được hủy");
+        return "redirect:/hoa-don/" + id;
+    }
 
 
     // =================================================
@@ -507,51 +507,51 @@ public class TrangChuController {
         return "user/layout";
     }
 
-//    @PostMapping("update/{id}")
-//    public String update(@PathVariable("id") UUID id, @Valid @ModelAttribute("kh") KhachHangRequest khachHangRequest, BindingResult result, Model model, RedirectAttributes redirectAttributes) {
-//        if (khachHangRequest.validUpdate()) {
-//            redirectAttributes.addFlashAttribute("errorMessage", "Vui lòng điền đầy đủ thông tin.");
-//            return redirect;
-//        }
-//        if (!khachHangService.isSoDienThoai(khachHangRequest.getSoDienThoai())) {
-//            redirectAttributes.addFlashAttribute("errorMessage", "Số điện thoại không đúng định dạng.");
-//            return redirect;
-//        }
-//        khachHangRequest.setTrangThai(0);
-//        khachHangService.update(khachHangRequest, id);
-//        session.setAttribute("khachHang", khachHangService.getById(id));
-//        redirectAttributes.addFlashAttribute("successMessage", "Cập nhật khách hàng thành công");
-//
-//        return redirect;
-//    }
-//
-//    @PostMapping("hoa-don/update/{id}")
-//    public String updateBenTrangHdUser(@PathVariable("id") UUID id, @Valid @ModelAttribute("kh") KhachHangRequest khachHangRequest, BindingResult result, Model model, RedirectAttributes redirectAttributes) {
-//        if (khachHangRequest.validUpdate()) {
-//            redirectAttributes.addFlashAttribute("errorMessage", "Vui lòng điền đầy đủ thông tin.");
-//            return redirect;
-//        }
-//        if (!khachHangService.isSoDienThoai(khachHangRequest.getSoDienThoai())) {
-//            redirectAttributes.addFlashAttribute("errorMessage", "Số điện thoại không đúng định dạng.");
-//            return redirect;
-//        }
-//        khachHangRequest.setTrangThai(0);
-//        khachHangService.update(khachHangRequest, id);
-//        session.setAttribute("khachHang", khachHangService.getById(id));
-//        redirectAttributes.addFlashAttribute("successMessage", "Cập nhật khách hàng thành công");
-//
-//        return redirect;
-//    }
-//
-//    @GetMapping("get/{id}")
-//    @ResponseBody
-//    public ResponseEntity<KhachHangResponse> getKhachHang(@PathVariable("id") UUID id) {
-//        return ResponseEntity.ok(khachHangService.getById(id));
-//    }
-//
-//    @GetMapping("hoa-don/get/{id}")
-//    @ResponseBody
-//    public ResponseEntity<KhachHangResponse> getKhachHang1(@PathVariable("id") UUID id) {
-//        return ResponseEntity.ok(khachHangService.getById(id));
-//    }
+    @PostMapping("update/{id}")
+    public String update(@PathVariable("id") UUID id, @Valid @ModelAttribute("kh") KhachHangRequest khachHangRequest, BindingResult result, Model model, RedirectAttributes redirectAttributes) {
+        if (khachHangRequest.validUpdate()) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Vui lòng điền đầy đủ thông tin.");
+            return redirect;
+        }
+        if (!khachHangService.isSoDienThoai(khachHangRequest.getSoDienThoai())) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Số điện thoại không đúng định dạng.");
+            return redirect;
+        }
+        khachHangRequest.setTrangThai(0);
+        khachHangService.update(khachHangRequest, id);
+        session.setAttribute("khachHang", khachHangService.getById(id));
+        redirectAttributes.addFlashAttribute("successMessage", "Cập nhật khách hàng thành công");
+
+        return redirect;
+    }
+
+    @PostMapping("hoa-don/update/{id}")
+    public String updateBenTrangHdUser(@PathVariable("id") UUID id, @Valid @ModelAttribute("kh") KhachHangRequest khachHangRequest, BindingResult result, Model model, RedirectAttributes redirectAttributes) {
+        if (khachHangRequest.validUpdate()) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Vui lòng điền đầy đủ thông tin.");
+            return redirect;
+        }
+        if (!khachHangService.isSoDienThoai(khachHangRequest.getSoDienThoai())) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Số điện thoại không đúng định dạng.");
+            return redirect;
+        }
+        khachHangRequest.setTrangThai(0);
+        khachHangService.update(khachHangRequest, id);
+        session.setAttribute("khachHang", khachHangService.getById(id));
+        redirectAttributes.addFlashAttribute("successMessage", "Cập nhật khách hàng thành công");
+
+        return redirect;
+    }
+
+    @GetMapping("get/{id}")
+    @ResponseBody
+    public ResponseEntity<KhachHangResponse> getKhachHang(@PathVariable("id") UUID id) {
+        return ResponseEntity.ok(khachHangService.getById(id));
+    }
+
+    @GetMapping("hoa-don/get/{id}")
+    @ResponseBody
+    public ResponseEntity<KhachHangResponse> getKhachHang1(@PathVariable("id") UUID id) {
+        return ResponseEntity.ok(khachHangService.getById(id));
+    }
 }
