@@ -4,6 +4,7 @@
 
 <div class="mt-5">
     <div>
+        <h1 class="text-center">Đơn hàng của tôi</h1>
         <c:if test="${ f:length(listHoaDon.content) == 0 }">
             <h4 class="text-center">Không có hoá đơn nào</h4>
         </c:if>
@@ -86,25 +87,26 @@
                 </a>
             </c:forEach>
         </c:if>
+        <div class="mt-3 text-center">
+            <div class="text-center">
+                <c:if test="${listHoaDon.totalPages > 0}">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item <c:if test="${listHoaDon.number == 0}">disabled</c:if>">
+                            <a class="page-link" href="?page=1">First</a>
+                        </li>
+                        <c:forEach var="i" begin="1" end="${listHoaDon.totalPages}">
+                            <li class="page-item <c:if test="${listHoaDon.number + 1 == i}">active</c:if>">
+                                <a class="page-link" href="?page=${i}">${i}</a>
+                            </li>
+                        </c:forEach>
+                        <li class="page-item <c:if test="${listHoaDon.number == listHoaDon.totalPages-1}">disabled</c:if>">
+                            <a class="page-link" href="?page=${listHoaDon.totalPages}">Last</a>
+                        </li>
+                    </ul>
+                </c:if>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="mt-3">
-    <div class="text-center">
-        <c:if test="${listHoaDon.totalPages > 1}">
-            <ul class="pagination">
-                <li class="page-item <c:if test="${listHoaDon.number == 0}">disabled</c:if>">
-                    <a class="page-link" href="?page=1">First</a>
-                </li>
-                <c:forEach var="i" begin="1" end="${listHoaDon.totalPages}">
-                    <li class="page-item <c:if test="${listHoaDon.number + 1 == i}">active</c:if>">
-                        <a class="page-link" href="?page=${i}">${i}</a>
-                    </li>
-                </c:forEach>
-                <li class="page-item <c:if test="${listHoaDon.number == listHoaDon.totalPages-1}">disabled</c:if>">
-                    <a class="page-link" href="?page=${listHoaDon.totalPages}">Last</a>
-                </li>
-            </ul>
-        </c:if>
-    </div>
-</div>
+

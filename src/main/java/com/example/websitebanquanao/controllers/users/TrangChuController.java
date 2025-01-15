@@ -114,26 +114,26 @@ public class TrangChuController {
         return "user/layout";
     }
 
-//    // lấy số phần trăm khuyến mãi để hiển thị lên sản phẩm
-//    @GetMapping("/so-phan-tram-giam/{idSanPham}")
-//    @ResponseBody
-//    public ResponseEntity<Integer> soPhanTramGiamKhuyenMai(@PathVariable("idSanPham") UUID idSanPham) {
-//        return ResponseEntity.ok(khuyenMaiChiTietService.getSoPhanTramGiamByIdSanPham(idSanPham));
-//    }
-//
-//    // trang sản phẩm chi tiết
-//    @GetMapping("/san-pham/{idSanPham}/{idMauSac}")
-//    public String sanPhamChiTiet(@PathVariable("idSanPham") UUID idSanPham, @PathVariable("idMauSac") Integer idMauSac, Model model) {
-//        Integer idKichCo = sanPhamService.getMinIdKichCoByIdMauSacnAndIdSanPham(idSanPham, idMauSac);
-//        model.addAttribute("sanPham", sanPhamService.getByIdSanPhamAndIdMauSacAndIdKichCo(idSanPham, idMauSac, idKichCo));
-//        model.addAttribute("kh", khachHangRequest);
-//        model.addAttribute("listMauSac", mauSacService.getListMauSacByIdSanPham(idSanPham));
-//        model.addAttribute("listKichCo", kichCoService.getListKichCoByIdSanPhamAndMauSac(idSanPham, idMauSac));
-//        model.addAttribute("listAnh", anhSanPhamService.getListAnhByIdSanPham(idSanPham));
-//        model.addAttribute("idMauSac", idMauSac);
-//        model.addAttribute("viewContent", "/views/user/san-pham-chi-tiet.jsp");
-//        return "user/layout";
-//    }
+    // lấy số phần trăm khuyến mãi để hiển thị lên sản phẩm
+    @GetMapping("/so-phan-tram-giam/{idSanPham}")
+    @ResponseBody
+    public ResponseEntity<Integer> soPhanTramGiamKhuyenMai(@PathVariable("idSanPham") UUID idSanPham) {
+        return ResponseEntity.ok(khuyenMaiChiTietService.getSoPhanTramGiamByIdSanPham(idSanPham));
+    }
+
+    // trang sản phẩm chi tiết
+    @GetMapping("/san-pham/{idSanPham}/{idMauSac}")
+    public String sanPhamChiTiet(@PathVariable("idSanPham") UUID idSanPham, @PathVariable("idMauSac") Integer idMauSac, Model model) {
+        Integer idKichCo = sanPhamService.getMinIdKichCoByIdMauSacnAndIdSanPham(idSanPham, idMauSac);
+        model.addAttribute("sanPham", sanPhamService.getByIdSanPhamAndIdMauSacAndIdKichCo(idSanPham, idMauSac, idKichCo));
+        model.addAttribute("kh", khachHangRequest);
+        model.addAttribute("listMauSac", mauSacService.getListMauSacByIdSanPham(idSanPham));
+        model.addAttribute("listKichCo", kichCoService.getListKichCoByIdSanPhamAndMauSac(idSanPham, idMauSac));
+        model.addAttribute("listAnh", anhSanPhamService.getListAnhByIdSanPham(idSanPham));
+        model.addAttribute("idMauSac", idMauSac);
+        model.addAttribute("viewContent", "/views/user/san-pham-chi-tiet.jsp");
+        return "user/layout";
+    }
 
     // trang sản phẩm sale
     @GetMapping("/sale")
