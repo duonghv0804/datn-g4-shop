@@ -114,7 +114,7 @@ public class KhuyenMaiService {
 
     @Transactional
     public void updateTrangThai(UUID id, int trangThai) {
-        Date ngayKetThuc = Date.valueOf("2024-01-03");
+        Date ngayKetThuc = Date.valueOf("1990-01-01");
         khuyenMaiRepository.updateTrangThaiById(id, trangThai);
         khuyenMaiRepository.updateNgayKetThucById(id, ngayKetThuc);
         khuyenMaiRepository.deleteKhuyenMaiChiTietById(id);

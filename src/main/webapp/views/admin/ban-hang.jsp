@@ -281,10 +281,10 @@
                                 id="SPModal_btn">
                             Thêm sản phẩm
                         </button>
-<%--                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#QRModal"--%>
-<%--                                id="QRModal_btn">--%>
-<%--                            Quét QR--%>
-<%--                        </button>--%>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#QRModal"
+                                id="QRModal_btn">
+                            Quét QR
+                        </button>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#MASPModal"
                                 id="MASPModal_btn">
                             Thêm với mã SP
